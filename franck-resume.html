@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Franck Roussel Rasmussen - Chief Product Officer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-main: #fafafa;
+            --bg-content: #ffffff;
+            --bg-sidebar: #ffffff;
+            --text-primary: #0a0a0a;
+            --text-secondary: #525252;
+            --text-tertiary: #737373;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --accent-light: #dbeafe;
+            --border: #e5e5e5;
+            --border-light: #f5f5f5;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.05);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Layout Container */
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 320px;
+            background: var(--bg-sidebar);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem 1.25rem 1rem;
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 10;
+        }
+
+        .profile-section {
+            margin-bottom: 0.75rem;
+        }
+
+        .profile-initials {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 0.625rem;
+            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.125rem;
+            font-weight: 700;
+            box-shadow: var(--shadow);
+        }
+
+        .profile-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.125rem;
+            letter-spacing: -0.02em;
+        }
+
+        .profile-title {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.3;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.6875rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        .contact-icon {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+            opacity: 0.7;
+        }
+
+        .sidebar-nav {
+            padding: 0.75rem 0 1rem;
+            flex: 1;
+        }
+
+        .nav-section {
+            margin-bottom: 1rem;
+        }
+
+        .nav-section-title {
+            font-size: 0.5625rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-tertiary);
+            padding: 0 1.25rem;
+            margin-bottom: 0.375rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.375rem 1.25rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 2px solid transparent;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+            background: var(--accent-light);
+        }
+
+        .nav-link.active {
+            color: var(--accent);
+            background: var(--accent-light);
+            border-left-color: var(--accent);
+            font-weight: 600;
+        }
+
+        .nav-link-sub {
+            padding-left: 1.75rem;
+            font-size: 0.6875rem;
+            font-weight: 400;
+        }
+
+        .nav-link-sub::before {
+            content: '';
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2.5px;
+            height: 2.5px;
+            border-radius: 50%;
+            background: var(--text-tertiary);
+        }
+
+        .nav-link-sub.active::before {
+            background: var(--accent);
+        }
+
+
+        /* Main Content */
+        .main-content {
+            margin-left: 320px;
+            flex: 1;
+            height: 100vh;
+            overflow-y: auto;
+            background: var(--bg-main);
+        }
+
+        .main-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .main-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .main-content::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+
+        .main-content::-webkit-scrollbar-thumb:hover {
+            background: var(--text-tertiary);
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+            scroll-margin-top: 2rem;
+        }
+
+        section:first-child {
+            padding-top: 4rem;
+        }
+
+        section#experience {
+            padding-top: 2rem;
+        }
+
+        .section-header {
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.03em;
+        }
+
+        .section-subtitle {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        #about {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .current-focus {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9ff 0%, #fef5ff 100%);
+            border: 2px solid var(--accent);
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.12);
+        }
+
+        .current-focus-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .current-focus-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 24px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .current-focus-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .current-focus-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 1rem 0 0 0;
+            font-weight: 500;
+        }
+
+        .current-focus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .focus-item {
+            position: relative;
+            border-radius: 16px;
+            padding: 0;
+            overflow: hidden;
+            height: 200px;
+            display: flex;
+            align-items: flex-end;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .focus-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.2);
+        }
+
+        .focus-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .focus-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .focus-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 100%);
+            z-index: 2;
+        }
+
+        .focus-content {
+            position: relative;
+            z-index: 3;
+            padding: 1.5rem;
+            width: 100%;
+        }
+
+        .focus-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1.3;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .stats-container {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            padding: 2.5rem;
+            background: var(--bg-content);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .stat-label {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Experience Timeline */
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .experience-item {
+            background: var(--bg-content);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 3.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-sm);
+            scroll-margin-top: 2rem;
+        }
+
+        .experience-item:hover {
+            box-shadow: 0 20px 40px -10px rgb(0 0 0 / 0.08);
+            border-color: var(--accent-light);
+        }
+
+        .company-header {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .company-logo {
+            width: 180px;
+            height: 90px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgb(0 0 0 / 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .experience-item:hover .company-logo {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgb(0 0 0 / 0.1);
+            border-color: var(--accent-light);
+        }
+
+        .company-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px;
+        }
+
+        .company-logo-text {
+            font-weight: 800;
+            font-size: 2rem;
+            color: var(--accent);
+            letter-spacing: -0.03em;
+        }
+
+        .company-info {
+            width: 100%;
+        }
+
+        .company-info h3 {
+            display: none;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .job-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .job-period,
+        .job-location {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .job-period::before {
+            content: '📅';
+            font-size: 0.875rem;
+        }
+
+        .job-location::before {
+            content: '';
+            font-size: 0.875rem;
+        }
+
+        .experience-content {
+            margin-top: 1.5rem;
+        }
+
+        .experience-description {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .job-description {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .job-description li {
+            padding-left: 1.75rem;
+            position: relative;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .job-description li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Education Cards */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1rem;
+        }
+
+        .education-card {
+            background: var(--bg-content);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .education-card:hover {
+            box-shadow: var(--shadow);
+            border-color: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        .education-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .education-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--accent-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .education-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.125rem;
+            letter-spacing: -0.01em;
+        }
+
+        .education-degree {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.375rem;
+        }
+
+        .education-years {
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        .education-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        .education-highlight {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border-light);
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.8125rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--bg-content);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .skill-category h3 {
+            font-size: 1.125rem;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.625rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: var(--bg-main);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            transition: all 0.15s;
+            font-weight: 500;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-light);
+            transform: translateY(-1px);
+        }
+
+        /* Languages */
+        .languages-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .language-item {
+            background: var(--bg-content);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .language-name {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .language-level {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact-card {
+            background: var(--bg-content);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-text {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact-action {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-main);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.15s;
+            font-weight: 500;
+        }
+
+        .contact-action:hover {
+            background: var(--accent-light);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .contact-action-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Product Showcase - Full Height Side by Side */
+        .experience-with-product {
+            display: grid;
+            grid-template-columns: 1fr 450px;
+            gap: 3rem;
+            align-items: stretch;
+        }
+
+        .experience-text-content {
+            min-width: 0;
+        }
+
+        .product-images-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            height: 100%;
+        }
+
+        .product-image-item {
+            background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            flex: 1;
+            min-height: 400px;
+        }
+
+        .product-image-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--accent-light) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .product-image-item:hover {
+            box-shadow: 0 20px 60px -10px rgb(0 0 0 / 0.15);
+            transform: translateX(-8px);
+            border-color: var(--accent);
+        }
+
+        .product-image-item:hover::before {
+            opacity: 0.12;
+        }
+
+        .product-image-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 16px;
+        }
+
+        .product-image-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .product-placeholder {
+            text-align: center;
+            color: var(--accent);
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-placeholder-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.85;
+        }
+
+        .product-placeholder-text {
+            font-weight: 700;
+            font-size: 1.25rem;
+            line-height: 1.4;
+            letter-spacing: -0.01em;
+        }
+
+        .product-image-title {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+            box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+            border: 1px solid var(--border-light);
+            z-index: 2;
+            white-space: nowrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 1600px) {
+            .content-wrapper {
+                max-width: 1100px;
+                padding: 0 3rem;
+            }
+
+            .experience-with-product {
+                grid-template-columns: 1fr 400px;
+                gap: 2.5rem;
+            }
+
+            .product-image-item {
+                padding: 2.5rem;
+                min-height: 350px;
+            }
+        }
+
+        @media (max-width: 1400px) {
+            .experience-with-product {
+                grid-template-columns: 1fr 350px;
+                gap: 2rem;
+            }
+
+            .product-image-item {
+                padding: 2rem;
+                min-height: 320px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .content-wrapper {
+                max-width: 900px;
+            }
+
+            .experience-with-product {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .product-images-container {
+                flex-direction: row;
+                height: auto;
+            }
+
+            .product-image-item {
+                min-height: 300px;
+                flex: 1;
+                min-width: 280px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 280px;
+            }
+
+            .main-content {
+                margin-left: 280px;
+            }
+
+            .content-wrapper {
+                padding: 0 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .content-wrapper {
+                padding: 0 1.5rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .stat-item {
+                text-align: left;
+            }
+
+            .experience-item {
+                padding: 2rem;
+                border-radius: 16px;
+            }
+
+            .product-images-container {
+                flex-direction: column;
+            }
+
+            .product-image-item {
+                min-height: 280px;
+                padding: 2rem;
+                min-width: auto;
+            }
+
+            .company-logo {
+                width: 140px;
+                height: 70px;
+            }
+
+            .job-title {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="profile-section">
+                    <div class="profile-initials">FR</div>
+                    <div class="profile-name">Franck Roussel Rasmussen</div>
+                    <div class="profile-title">AI Builder & Product Leader</div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                            </svg>
+                            <a href="mailto:franck@roussel.dk">franck@roussel.dk</a>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                            </svg>
+                            <a href="tel:+4526161981">+45 26 16 19 81</a>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
+                            </svg>
+                            <a href="https://www.linkedin.com/in/franckroussel" target="_blank">linkedin.com/in/franckroussel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Overview</div>
+                    <a href="#about" class="nav-link">Jan 2026 - Present</a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Experience</div>
+                    <a href="#infront" class="nav-link nav-link-sub">Infront AS (2023-2025)</a>
+                    <a href="#roussel-2022" class="nav-link nav-link-sub">Roussel Consulting (2022)</a>
+                    <a href="#trifork" class="nav-link nav-link-sub">Trifork & Duckwise (2019-2022)</a>
+                    <a href="#roussel-2018" class="nav-link nav-link-sub">Roussel Consulting (2018-2019)</a>
+                    <a href="#3shape" class="nav-link nav-link-sub">3Shape (2016-2018)</a>
+                    <a href="#eltel" class="nav-link nav-link-sub">Eltel Group (2015-2016)</a>
+                    <a href="#phaseone" class="nav-link nav-link-sub">Phase One (2012-2015)</a>
+                    <a href="#accenture" class="nav-link nav-link-sub">Accenture (2010-2012)</a>
+                    <a href="#nokia" class="nav-link nav-link-sub">Nokia (2007-2010)</a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Background</div>
+                    <a href="#skills" class="nav-link">Skills & Expertise</a>
+                    <a href="#education" class="nav-link">Education</a>
+                    <a href="#languages" class="nav-link">Languages</a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Contact</div>
+                    <a href="#contact" class="nav-link">Get in Touch</a>
+                </div>
+            </nav>
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- About Section -->
+                <section id="about">
+                    <div class="hero-content">
+                        <h1>P&L-Driven Product Builder.</h1>
+                        <p class="hero-subtitle">AI-First Solutions | Customer Outcomes | Problem Solver</p>
+                        <p class="hero-description">
+                            I own end-to-end delivery and measure success in P&L impact. 15+ years as P&L-responsible operator, Chief Product Officer under private equity, scaling businesses to 100M€+. I sit on-site with customers, understand their business model, and don't leave until the solution drives real revenue or cost savings.
+                        </p>
+
+                        <!-- Current Focus -->
+                        <div class="current-focus">
+                            <div class="current-focus-header">
+                                <span class="current-focus-badge">
+                                    <span>⚡</span>
+                                    <span>Currently Building</span>
+                                </span>
+                            </div>
+                            <p class="current-focus-description">
+                                Working with companies to implement AI-first tools and solutions. Exploring the frontier of AI technology through micro-SaaS products, vibe coding tools, and agent-based systems.
+                            </p>
+                            <div class="current-focus-grid">
+                                <div class="focus-item">
+                                    <div class="focus-icon">
+                                        <img src="2026/micro-saas.png" alt="Micro-SaaS Products" onerror="this.style.display='none'; this.parentElement.innerHTML='💼';">
+                                    </div>
+                                    <div class="focus-content">
+                                        <div class="focus-text">Micro-SaaS Products</div>
+                                    </div>
+                                </div>
+                                <div class="focus-item">
+                                    <div class="focus-icon">
+                                        <img src="2026/ai-first.png" alt="AI-First Solutions" onerror="this.style.display='none'; this.parentElement.innerHTML='🤖';">
+                                    </div>
+                                    <div class="focus-content">
+                                        <div class="focus-text">AI-First Solutions</div>
+                                    </div>
+                                </div>
+                                <div class="focus-item">
+                                    <div class="focus-icon">
+                                        <img src="2026/vibe-coding.png" alt="Vibe Coding Tools" onerror="this.style.display='none'; this.parentElement.innerHTML='⚙️';">
+                                    </div>
+                                    <div class="focus-content">
+                                        <div class="focus-text">Vibe Coding Tools</div>
+                                    </div>
+                                </div>
+                                <div class="focus-item">
+                                    <div class="focus-icon">
+                                        <img src="2026/agent-based.png" alt="Agent-Based Systems" onerror="this.style.display='none'; this.parentElement.innerHTML='🚀';">
+                                    </div>
+                                    <div class="focus-content">
+                                        <div class="focus-text">Agent-Based Systems</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Tools Section -->
+                        <div style="margin-top: 3rem;">
+                            <div style="margin-bottom: 2rem;">
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">AI Tools & Platforms</h3>
+                                <p style="font-size: 0.9375rem; color: var(--text-secondary); font-weight: 500;">Current tech stack for building AI-first solutions</p>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                                <div style="background: white; border: 1px solid var(--border-light); border-radius: 12px; padding: 1.25rem;">
+                                    <h4 style="font-size: 0.875rem; font-weight: 700; color: var(--accent); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Development</h4>
+                                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Claude Code & CoWork</span>
+                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Cursor IDE</span>
+                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">GitHub Copilot</span>
+                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Lovable</span>
+                                    </div>
+                                </div>
+
+                                <div style="background: white; border: 1px solid var(--border-light); border-radius: 12px; padding: 1.25rem;">
+                                    <h4 style="font-size: 0.875rem; font-weight: 700; color: var(--accent); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">AI Agents</h4>
+                                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">OpenClaw</span>
+                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">MoltBot</span>
+                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">AutoGPT</span>
+                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">LangChain</span>
+                                    </div>
+                                </div>
+
+                                <div style="background: white; border: 1px solid var(--border-light); border-radius: 12px; padding: 1.25rem;">
+                                    <h4 style="font-size: 0.875rem; font-weight: 700; color: var(--accent); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">No-Code/Low-Code</h4>
+                                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">v0 by Vercel</span>
+                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Bolt.new</span>
+                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Replit Agent</span>
+                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Windsurf</span>
+                                    </div>
+                                </div>
+
+                                <div style="background: white; border: 1px solid var(--border-light); border-radius: 12px; padding: 1.25rem;">
+                                    <h4 style="font-size: 0.875rem; font-weight: 700; color: var(--accent); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">LLM Platforms</h4>
+                                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Claude (Anthropic)</span>
+                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">GPT-4 (OpenAI)</span>
+                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Gemini (Google)</span>
+                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">DeepSeek</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Experience Section -->
+                <section id="experience">
+                    <div class="section-header">
+                        <h2 class="section-title">Experience</h2>
+                        <p class="section-subtitle">Technical fluency meets operational ownership. 15+ years delivering measurable customer outcomes—1300% EBITDA growth through solutions that work in production, revenue growth, cost reduction, and operational transformation</p>
+                    </div>
+
+                    <div class="stats-container">
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-number">100M€+</div>
+                                <div class="stat-label">P&L Owned</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">1300%</div>
+                                <div class="stat-label">EBITDA Growth</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">PE-Backed</div>
+                                <div class="stat-label">C-Suite Operator</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-list">
+                        <!-- Infront AS -->
+                        <div class="experience-item" id="infront" data-company="infront">
+                            <div class="experience-with-product">
+                                <div class="experience-text-content">
+                                    <div class="company-header">
+                                        <div class="company-logo">
+                                            <img src="logos/Infront.png" alt="Infront">
+                                        </div>
+                                        <div class="company-info">
+                                            <h3>Infront AS</h3>
+                                            <div class="job-title">Chief Product Officer</div>
+                                            <div class="job-meta">
+                                                <div class="job-period">January 2023 - November 2025</div>
+                                                <div class="job-location">🇩🇰 🇸🇪 🇳🇴 🇫🇮 🇩🇪 🇦🇹 🇨🇭 🇬🇧</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="experience-content">
+                                        <p class="experience-description">
+                                            Lead 250+ FTE organization delivering WealthTech platform to 10,000+ financial professionals. Report to CEO at PE-backed company.
+                                        </p>
+                                        <ul class="job-description">
+                                            <li>Accountable for product performance: revenue growth, feature prioritization, customer retention. Delivered record results 2023-2025 beating board targets</li>
+                                            <li>Deploy on-site with enterprise customers (banks, asset managers) to map workflows, architect integrations, measure ROI in reduced costs or increased AUM</li>
+                                            <li>Led platform transformation from legacy terminal to modern API architecture while maintaining 99.9% uptime</li>
+                                            <li>Shipped AI/ML features into wealth management workflows (portfolio optimization, risk analytics) measured by customer P&L impact</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-images-container">
+                                    <div class="product-image-item">
+                                        <img src="Infront/Hero 4.png" alt="Infront Platform">
+                                        <div class="product-image-title">Advanced Data and Trading Terminals</div>
+                                    </div>
+                                    <div class="product-image-item">
+                                        <img src="Infront/quant-1408x1408px.webp" alt="Quantitative Analytics">
+                                        <div class="product-image-title">Risk and Calculation Services</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Roussel Consulting 2022 -->
+                        <div class="experience-item" id="roussel-2022" data-company="roussel">
+                            <div class="experience-with-product">
+                                <div class="experience-text-content">
+                                    <div class="company-header">
+                                        <div class="company-logo">
+                                            <img src="logos/RC logo.jpeg" alt="Roussel Consulting">
+                                        </div>
+                                        <div class="company-info">
+                                            <h3>Roussel Consulting</h3>
+                                            <div class="job-title">Freelance | Product Strategy & Management</div>
+                                            <div class="job-meta">
+                                                <div class="job-period">January 2022 - December 2022</div>
+                                                <div class="job-location">🇩🇰 Copenhagen</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="experience-content">
+                                        <p class="experience-description">
+                                            Embedded on-site to diagnose business problems and build transformation roadmap that I later executed as CPO.
+                                        </p>
+                                        <ul class="job-description">
+                                            <li>Worked with C-suite to understand P&L pressures, competitive threats (Bloomberg, Refinitiv), customer churn—diagnosed root causes in product complexity</li>
+                                            <li>Built financial model showing 30%+ margin improvement through portfolio rationalization. Translated technical decisions into EBITDA impact for PE board</li>
+                                            <li>Delivered 3-5 year roadmap with milestones and financial outcomes—implementation plan I executed after being hired as CPO</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-images-container">
+                                    <div class="product-image-item">
+                                        <img src="Roussel Consulting/Roussel consulting Infront.webp" alt="Infront Strategy Engagement">
+                                        <div class="product-image-title">New WealthTech Strategy</div>
+                                    </div>
+                                    <div class="product-image-item">
+                                        <img src="logos/Inflexion.png.avif" alt="Inflexion Private Equity">
+                                        <div class="product-image-title">Engaged via Inflexion PE</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Trifork & Duckwise -->
+                        <div class="experience-item" id="trifork" data-company="trifork">
+                            <div class="experience-with-product">
+                                <div class="experience-text-content">
+                                    <div class="company-header">
+                                        <div class="company-logo">
+                                            <img src="logos/Trifork_logo_RGB.png" alt="Trifork">
+                                        </div>
+                                        <div class="company-info">
+                                            <h3>Trifork & Duckwise</h3>
+                                            <div class="job-title">Vice President & Business Unit Leader</div>
+                                            <div class="job-meta">
+                                                <div class="job-period">January 2019 - January 2022</div>
+                                                <div class="job-location">🇩🇰 Copenhagen</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="experience-content">
+                                        <p class="experience-description">
+                                            P&L owner of software consultancy. Built to 46M DKK revenue with 1300% EBITDA growth.
+                                        </p>
+                                        <ul class="job-description">
+                                            <li>Full P&L accountability: revenue, EBITDA, hiring, delivery. Reported quarterly financial performance to board</li>
+                                            <li>Deployed on-site at Maersk, Jyske Bank, DSB for weeks at a time. Understood their processes, architected solutions, drove technical specs</li>
+                                            <li>Sold outcome-based contracts measured by customer metrics (cost per transaction, time-to-market, NPS). Contracts renewed based on P&L improvement</li>
+                                            <li>Managed 40-person team delivering banking platforms, identity verification (NemID), enterprise logistics where downtime costs millions</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-images-container">
+                                    <div class="product-image-item">
+                                        <img src="Trifork/NemID-Passport-validation-1-689x950.jpg" alt="NemID Passport Validation">
+                                        <div class="product-image-title">nemID Nøgleapp</div>
+                                    </div>
+                                    <div class="product-image-item">
+                                        <img src="Trifork/MCI.jpg" alt="MCI Platform">
+                                        <div class="product-image-title">Mærsk Container Industries</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Roussel Consulting 2018 -->
+                        <div class="experience-item" id="roussel-2018" data-company="roussel">
+                            <div class="experience-with-product">
+                                <div class="experience-text-content">
+                                    <div class="company-header">
+                                        <div class="company-logo">
+                                            <img src="logos/RC logo.jpeg" alt="Roussel Consulting">
+                                        </div>
+                                        <div class="company-info">
+                                            <h3>Roussel Consulting</h3>
+                                            <div class="job-title">Freelance | Growth & Merger Strategy</div>
+                                            <div class="job-meta">
+                                                <div class="job-period">2018 - 2019</div>
+                                                <div class="job-location">🇩🇰 Copenhagen</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="experience-content">
+                                        <p class="experience-description">
+                                            Strategic consulting engagement focused on growth strategy and sales transformation for Nordic engineering consultancy.
+                                        </p>
+                                        <ul class="job-description">
+                                            <li>Developed comprehensive 2020 growth strategy for Sweco DK, identifying concrete opportunities totaling 650 mDKK in revenue potential</li>
+                                            <li>Implemented Pipedrive sales pipeline management system across the organization, improving visibility and forecast accuracy</li>
+                                            <li>Led change management and sales coaching initiatives for Sweco's Infrastructure division, driving adoption of new processes</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-images-container">
+                                    <div class="product-image-item">
+                                        <img src="Roussel Consulting/Roussel consulting sweco-office.jpg" alt="Sweco Strategy Engagement">
+                                        <div class="product-image-title">Sweco Architecture & Engineering Consultancy</div>
+                                    </div>
+                                    <div class="product-image-item">
+                                        <img src="Roussel Consulting/Pipedrive_Logo.svg.png" alt="Pipedrive Implementation">
+                                        <div class="product-image-title">New CRM System</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3Shape -->
+                        <div class="experience-item" id="3shape" data-company="3shape">
+                            <div class="experience-with-product">
+                                <div class="experience-text-content">
+                                    <div class="company-header">
+                                        <div class="company-logo">
+                                            <img src="logos/3shape-intraoral-scanner-logo.png" alt="3Shape">
+                                        </div>
+                                        <div class="company-info">
+                                            <h3>3Shape</h3>
+                                            <div class="job-title">Product Director TRIOS / Clinic BU</div>
+                                            <div class="job-meta">
+                                                <div class="job-period">2016 - 2018</div>
+                                                <div class="job-location">🇩🇰 🌍 Copenhagen / Global</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="experience-content">
+                                        <p class="experience-description">
+                                            <strong>Headhunted as Product Director</strong> for global 3D intraoral scanning business (TRIOS). <strong>150%+ YoY growth to 100+ mEUR</strong> in 2017 (Gazelle winner '16). <strong>Promoted after 3 months</strong> to also lead Design Studio product team (3D CAD/CAM).
+                                        </p>
+                                        <ul class="job-description">
+                                            <li><strong>Led TRIOS Product Management team—15 FTE</strong> (6 new hires in 2017) across technical and commercial functions. Collaborated within <strong>global matrix organization (1,100 FTE, growing ~400 in 2017)</strong></li>
+                                            <li>Led multiple product launches (HW/SW including AI/machine learning projects), pricing strategy. <strong>Keynote speaker at major dentist symposiums and industry fairs worldwide</strong> (Brazil, Japan, China, US)</li>
+                                            <li>Deployed on-site with dental customers to implement scanning/CAD workflows. Measured ROI in reduced chair time and lab costs. Built business cases showing 12-18 month payback for $100K+ equipment</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-images-container">
+                                    <div class="product-image-item">
+                                        <img src="logos/3Shape-Trios-Main-Image_33.jpg" alt="TRIOS Intraoral Scanner">
+                                        <div class="product-image-title">TRIOS 3D Intraoral Scanners</div>
+                                    </div>
+                                    <div class="product-image-item">
+                                        <img src="3Shape/3shape-TRIOS-3-BASIC.jpeg" alt="TRIOS 3 BASIC Scanner">
+                                        <div class="product-image-title">End-2-End Software Workflows</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Eltel Group -->
+                        <div class="experience-item" id="eltel" data-company="eltel">
+                            <div class="experience-with-product">
+                                <div class="experience-text-content">
+                                    <div class="company-header">
+                                        <div class="company-logo">
+                                            <img src="logos/eltel-og-image-768x403.jpg" alt="Eltel Group">
+                                        </div>
+                                        <div class="company-info">
+                                            <h3>Eltel Group</h3>
+                                            <div class="job-title">CFO/COO Mobile Communications BU</div>
+                                            <div class="job-meta">
+                                                <div class="job-period">2015 - 2016</div>
+                                                <div class="job-location">🇩🇰 🇪🇺 Copenhagen / Europe</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="experience-content">
+                                        <p class="experience-description">
+                                            <strong>Headhunted as 'Right hand' to President</strong> of Mobile Business Unit (network design, construction, maintenance). <strong>1,000+ employees, 110 mEUR turnover</strong> across European markets.
+                                        </p>
+                                        <ul class="job-description">
+                                            <li><strong>Led 10 financial controllers</strong> across Nordics, Germany, UK, Eastern Europe—running monthly business reviews, KPI dashboards, group reporting, and sales response for major tender bids</li>
+                                            <li><strong>Implemented standardized monthly business review packages</strong> across all Eltel mobile countries, driving clarity and action on key metrics: net sales, gross margin, fixed overhead, utilization, net working capital, invoicing, accounts receivable, sales pipeline</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-images-container">
+                                    <div class="product-image-item">
+                                        <img src="Eltel/DSC08245-e1758628494813.webp" alt="Telecom Infrastructure">
+                                        <div class="product-image-title">Mobile Infrastructure Deployment</div>
+                                    </div>
+                                    <div class="product-image-item">
+                                        <img src="Eltel/Networks.webp" alt="Network Infrastructure">
+                                        <div class="product-image-title">Critical Network Service Provider</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phase One -->
+                        <div class="experience-item" id="phaseone" data-company="phaseone">
+                            <div class="experience-with-product">
+                                <div class="experience-text-content">
+                                    <div class="company-header">
+                                        <div class="company-logo">
+                                            <img src="logos/Phase-one-logo-vector.svg.png" alt="Phase One">
+                                        </div>
+                                        <div class="company-info">
+                                            <h3>Phase One</h3>
+                                            <div class="job-title">VP Product Management & Marketing</div>
+                                            <div class="job-meta">
+                                                <div class="job-period">2012 - 2015</div>
+                                                <div class="job-location">🇩🇰 🌍 Copenhagen / Global</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="experience-content">
+                                        <p class="experience-description">
+                                            Head of Product Management and Marketing. <strong>Member of leadership team, promoted 3 times.</strong> Led 11 FTE plus external consultants within <strong>global matrix organization (~300 FTE).</strong>
+                                        </p>
+                                        <ul class="job-description">
+                                            <li>Led XF camera system and Capture One software launch—re-branded Phase One from 'Digital Back' manufacturer to full camera system provider. <strong>Most successful launch in company history: record 450 mDKK revenue in 2014,</strong> 60+ events across 30 countries</li>
+                                            <li>Drove product launches, marketing campaigns, pricing strategy, and global sales support. Keynote speaker at events worldwide</li>
+                                            <li><strong>Core transaction team member for sale to Silverfleet Capital</strong> (UK private equity)—closed 2014</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-images-container">
+                                    <div class="product-image-item">
+                                        <img src="Phase One product image/P1 Hero.jpg" alt="Phase One Camera System">
+                                        <div class="product-image-title">XF Camera and Software Solutions</div>
+                                    </div>
+                                    <div class="product-image-item">
+                                        <img src="logos/Silverfleet_RGB_high_copy.png" alt="Silverfleet Capital">
+                                        <div class="product-image-title">Exit to Silverfleet PE</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accenture -->
+                        <div class="experience-item" id="accenture" data-company="accenture">
+                            <div class="experience-with-product">
+                                <div class="experience-text-content">
+                                    <div class="company-header">
+                                        <div class="company-logo">
+                                            <img src="logos/Accenture.png" alt="Accenture">
+                                        </div>
+                                        <div class="company-info">
+                                            <h3>Accenture</h3>
+                                            <div class="job-title">Management Consultant, Strategy</div>
+                                            <div class="job-meta">
+                                                <div class="job-period">2010 - 2012</div>
+                                                <div class="job-location">🇩🇰 🇸🇪 🇳🇴 Copenhagen / Nordic</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="experience-content">
+                                        <p class="experience-description">
+                                            Management consultant in Communications, Media & Technology practice. <strong>Promoted to engagement manager</strong> for strategy assignments.
+                                        </p>
+                                        <ul class="job-description">
+                                            <li>Led strategy engagements for tech and media companies across the Nordics. <strong>Part of sales team (50% time)</strong> winning projects across management consulting, IT, and business process outsourcing</li>
+                                            <li><strong>Rated 'Significantly Above Target'</strong> in FY11 and <strong>nominated for accelerated promotion in 2012</strong> when headhunted to Phase One</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-images-container">
+                                    <div class="product-image-item">
+                                        <img src="Accenture/Accenture-Strategy-Consulting-Social-1200-628-1-social-thumbnail-landscape.webp" alt="Accenture Strategy Consulting">
+                                        <div class="product-image-title">Tech & Strategy Consulting</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Nokia -->
+                        <div class="experience-item" id="nokia" data-company="nokia">
+                            <div class="experience-with-product">
+                                <div class="experience-text-content">
+                                    <div class="company-header">
+                                        <div class="company-logo">
+                                            <img src="logos/Nokia logo 2.png" alt="Nokia">
+                                        </div>
+                                        <div class="company-info">
+                                            <h3>Nokia</h3>
+                                            <div class="job-title">Global Graduate Program | Product Management</div>
+                                            <div class="job-meta">
+                                                <div class="job-period">2007 - 2010</div>
+                                                <div class="job-location">🇩🇰 🇨🇳 🇫🇮 🇩🇪</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="experience-content">
+                                        <p class="experience-description">
+                                            Selected from 1300+ candidates for Nokia's global graduate program. On-the-job training with senior mentoring across all stages of product lifecycle at R&D sites worldwide. Subsequently hired in Copenhagen Product Management team.
+                                        </p>
+                                        <ul class="job-description">
+                                            <li><strong>Portfolio Manager - Smartphones & Connect C-series</strong> | Copenhagen, Denmark (2010)</li>
+                                            <li><strong>Product Life-Cycle Manager - Nokia 1682</strong> | Beijing, China (2009)</li>
+                                            <li><strong>Product Manager - Nokia 6730</strong> | Espoo, Finland (2008)</li>
+                                            <li><strong>Product Planning - Live/Express portfolio</strong> | Oulu, Finland (2008)</li>
+                                            <li><strong>Product Manager - Nokia 6300i (VoIP)</strong> | Ulm, Germany (2007)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-images-container">
+                                    <div class="product-image-item">
+                                        <img src="Nokia/nokia-6730-classic-01.jpg" alt="Nokia 6730 Classic">
+                                        <div class="product-image-title">Product Manager for Multiple Phones</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Skills Section -->
+                <section id="skills">
+                    <div class="section-header">
+                        <h2 class="section-title">Core Competencies</h2>
+                        <p class="section-subtitle">Builder and operator—technical execution meets P&L accountability</p>
+                    </div>
+
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3>Deployment & Operations</h3>
+                            <div class="skill-list">
+                                <span class="skill-tag">On-Site Customer Deployment</span>
+                                <span class="skill-tag">Production System Delivery</span>
+                                <span class="skill-tag">Technical Implementation</span>
+                                <span class="skill-tag">ROI Measurement & Tracking</span>
+                                <span class="skill-tag">Process Mapping & Optimization</span>
+                                <span class="skill-tag">Customer Success Ownership</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Technical & Product</h3>
+                            <div class="skill-list">
+                                <span class="skill-tag">Technical Fluency</span>
+                                <span class="skill-tag">AI/ML Product Development</span>
+                                <span class="skill-tag">Platform Architecture</span>
+                                <span class="skill-tag">API Integration</span>
+                                <span class="skill-tag">Data Workflows</span>
+                                <span class="skill-tag">Technical Problem Solving</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>P&L & Business Ownership</h3>
+                            <div class="skill-list">
+                                <span class="skill-tag">Full P&L Accountability</span>
+                                <span class="skill-tag">EBITDA Management</span>
+                                <span class="skill-tag">PE Board Reporting</span>
+                                <span class="skill-tag">Customer Economics</span>
+                                <span class="skill-tag">Outcome-Based Metrics</span>
+                                <span class="skill-tag">Operational Transformation</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Industries & Markets</h3>
+                            <div class="skill-list">
+                                <span class="skill-tag">Financial Services</span>
+                                <span class="skill-tag">Enterprise Software</span>
+                                <span class="skill-tag">HealthTech</span>
+                                <span class="skill-tag">Nordic Markets</span>
+                                <span class="skill-tag">B2B SaaS</span>
+                                <span class="skill-tag">Mission-Critical Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Education Section -->
+                <section id="education">
+                    <div class="section-header">
+                        <h2 class="section-title">Education</h2>
+                        <p class="section-subtitle">Academic foundation in business innovation and international management</p>
+                    </div>
+
+                    <div class="education-grid">
+                        <div class="education-card">
+                            <div class="education-header">
+                                <div class="education-icon">
+                                    <img src="Education logos/copenhagen-business-school-logo-png_seeklogo-494938.png" alt="CBS" style="width: 100%; height: 100%; object-fit: contain;">
+                                </div>
+                                <div>
+                                    <h3>Copenhagen Business School</h3>
+                                    <div class="education-years">2004 - 2007</div>
+                                </div>
+                            </div>
+                            <div class="education-degree">Master of Science (M.Sc.)</div>
+                            <p>Management of Innovation and Business Development</p>
+                            <div class="education-highlight">GPA 10.4 (second highest in graduating class)</div>
+                        </div>
+
+                        <div class="education-card">
+                            <div class="education-header">
+                                <div class="education-icon">
+                                    <img src="Education logos/HEC_Paris.svg.png" alt="HEC Paris" style="width: 100%; height: 100%; object-fit: contain;">
+                                </div>
+                                <div>
+                                    <h3>HEC Paris</h3>
+                                    <div class="education-years">2005 - 2006</div>
+                                </div>
+                            </div>
+                            <div class="education-degree">Master in International Management</div>
+                            <p>CEMS Alliance (Community of European Management Schools)</p>
+                            <div class="education-highlight">Ranked #1 globally in Masters in Management (Financial Times 2009)</div>
+                        </div>
+
+                        <div class="education-card">
+                            <div class="education-header">
+                                <div class="education-icon">
+                                    <img src="Education logos/copenhagen-business-school-logo-png_seeklogo-494938.png" alt="CBS" style="width: 100%; height: 100%; object-fit: contain;">
+                                </div>
+                                <div>
+                                    <h3>Copenhagen Business School</h3>
+                                    <div class="education-years">2001 - 2004</div>
+                                </div>
+                            </div>
+                            <div class="education-degree">Bachelor of Science (B.Sc.)</div>
+                            <p>Economics and Business Administration</p>
+                        </div>
+
+                        <div class="education-card">
+                            <div class="education-header">
+                                <div class="education-icon">
+                                    <img src="Education logos/UW La crosse.png" alt="UW-La Crosse" style="width: 100%; height: 100%; object-fit: contain;">
+                                </div>
+                                <div>
+                                    <h3>University of Wisconsin-La Crosse</h3>
+                                    <div class="education-years">2003</div>
+                                </div>
+                            </div>
+                            <div class="education-degree">Exchange Semester</div>
+                            <p>International study abroad program 🇺🇸</p>
+                        </div>
+
+                        <div class="education-card">
+                            <div class="education-header">
+                                <div class="education-icon">
+                                    <img src="Education logos/144876-05fa78a2.jpeg" alt="Thrane & Thrane" style="width: 100%; height: 100%; object-fit: contain;">
+                                </div>
+                                <div>
+                                    <h3>Thrane & Thrane</h3>
+                                    <div class="education-years">2006</div>
+                                </div>
+                            </div>
+                            <div class="education-degree">International Internship</div>
+                            <p>Go-to-market strategy development for South Korea and China 🇰🇷 🇨🇳</p>
+                            <div class="education-highlight">CEMS Master in International Management requirement</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Languages Section -->
+                <section id="languages">
+                    <div class="section-header">
+                        <h2 class="section-title">Languages</h2>
+                        <p class="section-subtitle">Multilingual communication capabilities for international collaboration</p>
+                    </div>
+
+                    <div class="languages-list">
+                        <div class="language-item">
+                            <div class="language-name">Danish</div>
+                            <div class="language-level">Native Speaker</div>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-name">English</div>
+                            <div class="language-level">Full Professional Proficiency</div>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-name">French</div>
+                            <div class="language-level">Limited Working Proficiency</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Section -->
+                <section id="contact">
+                    <div class="section-header">
+                        <h2 class="section-title">Let's Connect</h2>
+                        <p class="section-subtitle">Open to discussing product strategy, leadership opportunities, and consulting projects</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <p class="contact-text">
+                            Based in Copenhagen, Denmark. Seeking Deployment Strategist roles with AI companies where I can own customer outcomes—deploy on-site, ship production systems, measure success in P&L impact.
+                        </p>
+                        <p class="contact-text">
+                            <strong>Personal:</strong> Half French, half Danish. Married to Sofia (medical doctor), father to Frida (4 years old). In my free time, I'm passionate about gardening, cooking, and photography.
+                        </p>
+                        <div class="contact-actions">
+                            <a href="mailto:franck@roussel.dk" class="contact-action">
+                                <span class="contact-action-icon">📧</span>
+                                <span>franck@roussel.dk</span>
+                            </a>
+                            <a href="tel:+4526161981" class="contact-action">
+                                <span class="contact-action-icon">📱</span>
+                                <span>+45 2616 1981</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Active navigation link tracking
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mainContent = document.querySelector('.main-content');
+        const contentWrapper = document.querySelector('.content-wrapper');
+        let isScrolling = false;
+        let scrollTimeout = null;
+
+        function updateActiveLink() {
+            if (!mainContent) return;
+
+            let currentSection = null;
+            let closestDistance = Infinity;
+
+            // Get all sections and experience items
+            const allTargets = document.querySelectorAll('section[id], .experience-item[id]');
+
+            // Find which section is closest to the top of the viewport
+            allTargets.forEach(target => {
+                const rect = target.getBoundingClientRect();
+                const mainRect = mainContent.getBoundingClientRect();
+
+                // Calculate distance from top of viewport
+                const distance = Math.abs(rect.top - mainRect.top);
+
+                // If this element is in the upper portion of the viewport and closer than previous
+                if (rect.top <= mainRect.top + 300 && rect.bottom >= mainRect.top && distance < closestDistance) {
+                    closestDistance = distance;
+                    currentSection = target.getAttribute('id');
+                }
+            });
+
+            // Update active states
+            if (currentSection) {
+                navLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href === `#${currentSection}`) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        // Debounced scroll handler
+        function handleScroll() {
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+
+            scrollTimeout = setTimeout(() => {
+                isScrolling = false;
+                updateActiveLink();
+            }, 50);
+
+            if (!isScrolling) {
+                isScrolling = true;
+                updateActiveLink();
+            }
+        }
+
+        // Update on scroll
+        if (mainContent) {
+            mainContent.addEventListener('scroll', handleScroll);
+            // Initial update
+            setTimeout(updateActiveLink, 100);
+        }
+
+        // Smooth scroll for navigation
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement && mainContent) {
+                    // Manually set active state immediately on click
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+
+                    // Calculate the position relative to the main-content scroll
+                    const targetTop = targetElement.offsetTop;
+                    const mainContentTop = contentWrapper.offsetTop;
+
+                    mainContent.scrollTo({
+                        top: targetTop - mainContentTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
