@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Franck Roussel Rasmussen - Chief Product Officer</title>
+    <meta name="description" content="Franck Roussel Rasmussen — P&L-driven product builder and AI-first solutions leader. 15+ years as CPO, VP Product, and PE-backed C-suite operator. Based in Copenhagen.">
+    <meta name="author" content="Franck Roussel Rasmussen">
+    <link rel="canonical" href="https://franck.roussel.dk/">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Franck Roussel Rasmussen — P&L-Driven Product Builder">
+    <meta property="og:description" content="AI-First Solutions | Customer Outcomes | 15+ years as CPO and PE-backed C-suite operator scaling businesses to 100M€+.">
+    <meta property="og:url" content="https://franck.roussel.dk/">
+    <meta property="og:image" content="https://franck.roussel.dk/Franck/IMG_0038 copy 2.jpg">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Franck Roussel Rasmussen — P&L-Driven Product Builder">
+    <meta name="twitter:description" content="AI-First Solutions | Customer Outcomes | 15+ years as CPO and PE-backed C-suite operator.">
     <style>
         * {
             margin: 0;
@@ -524,7 +537,15 @@
         }
 
         .company-info h3 {
-            display: none;
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         .job-title {
@@ -975,13 +996,148 @@
             }
         }
 
+        /* AI Tools Section */
+        .ai-tools-section {
+            margin-top: 3rem;
+        }
+
+        .ai-tools-header {
+            margin-bottom: 2rem;
+        }
+
+        .ai-tools-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .ai-tools-subtitle {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .ai-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .ai-tools-card {
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .ai-tools-card h4 {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .ai-tools-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .ai-tools-list span {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Hamburger Menu Button */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 200;
+            background: var(--bg-content);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.625rem;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            line-height: 1;
+        }
+
+        .menu-toggle svg {
+            width: 24px;
+            height: 24px;
+            display: block;
+        }
+
+        .menu-toggle .icon-close {
+            display: none;
+        }
+
+        .menu-toggle.active .icon-menu {
+            display: none;
+        }
+
+        .menu-toggle.active .icon-close {
+            display: block;
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 90;
+        }
+
+        .sidebar-overlay.active {
+            display: block;
+        }
+
+        /* CV Download Link */
+        .cv-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 0.625rem 1.25rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            transition: all 0.15s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cv-download:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+        }
+
         @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
             .sidebar {
-                width: 100%;
-                position: relative;
-                height: auto;
-                border-right: none;
-                border-bottom: 1px solid var(--border);
+                width: 300px;
+                position: fixed;
+                height: 100vh;
+                transform: translateX(-100%);
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                border-right: 1px solid var(--border);
+                border-bottom: none;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
             }
 
             .main-content {
@@ -1000,8 +1156,16 @@
                 padding: 3rem 0;
             }
 
+            section:first-child {
+                padding-top: 5rem;
+            }
+
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2.25rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem;
             }
 
             .stats {
@@ -1009,13 +1173,22 @@
                 gap: 1.5rem;
             }
 
+            .stat-number {
+                font-size: 2rem;
+            }
+
             .stat-item {
                 text-align: left;
             }
 
             .experience-item {
-                padding: 2rem;
+                padding: 1.5rem;
                 border-radius: 16px;
+            }
+
+            .experience-with-product {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .product-images-container {
@@ -1023,8 +1196,8 @@
             }
 
             .product-image-item {
-                min-height: 280px;
-                padding: 2rem;
+                min-height: 220px;
+                padding: 1.5rem;
                 min-width: auto;
             }
 
@@ -1036,10 +1209,132 @@
             .job-title {
                 font-size: 1.25rem;
             }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .current-focus {
+                padding: 1.5rem;
+            }
+
+            .current-focus-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .focus-item {
+                height: 150px;
+            }
+
+            .ai-tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .languages-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-wrapper {
+                padding: 0 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.875rem;
+            }
+
+            .current-focus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                padding: 1.5rem;
+            }
+
+            .experience-item {
+                padding: 1.25rem;
+            }
+        }
+
+        /* Print Stylesheet */
+        @media print {
+            .sidebar,
+            .menu-toggle,
+            .sidebar-overlay {
+                display: none !important;
+            }
+
+            .main-content {
+                margin-left: 0 !important;
+                height: auto !important;
+                overflow: visible !important;
+            }
+
+            .container {
+                display: block;
+            }
+
+            .content-wrapper {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .experience-item,
+            .education-card,
+            .skill-category,
+            .language-item,
+            .contact-card {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+
+            .experience-with-product {
+                grid-template-columns: 1fr;
+            }
+
+            .product-images-container {
+                display: none;
+            }
+
+            .focus-item:hover,
+            .experience-item:hover,
+            .education-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            a {
+                color: var(--text-primary) !important;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" aria-label="Toggle navigation menu">
+        <svg class="icon-menu" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg class="icon-close" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+    </button>
+    <div class="sidebar-overlay"></div>
+
     <div class="container">
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
@@ -1064,11 +1359,17 @@
                         </div>
                         <div class="contact-item">
                             <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
+                                <path d="M4.477 2A2.477 2.477 0 002 4.477v11.046A2.477 2.477 0 004.477 18h11.046A2.477 2.477 0 0018 15.523V4.477A2.477 2.477 0 0015.523 2H4.477zM7.5 15H5.25V8.5H7.5V15zM6.375 7.5a1.312 1.312 0 110-2.625 1.312 1.312 0 010 2.625zM15 15h-2.25v-3.188c0-.812-.016-1.859-1.133-1.859-1.133 0-1.305.886-1.305 1.8V15H8.063V8.5h2.156v.891h.031c.3-.57 1.034-1.17 2.128-1.17 2.275 0 2.695 1.497 2.695 3.444V15z"/>
                             </svg>
-                            <a href="https://www.linkedin.com/in/franckroussel" target="_blank">linkedin.com/in/franckroussel</a>
+                            <a href="https://www.linkedin.com/in/franckroussel" target="_blank" rel="noopener noreferrer">linkedin.com/in/franckroussel</a>
                         </div>
                     </div>
+                    <a href="CV 2025 FRR.pdf" class="cv-download" download>
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12l7 7 7-7"/>
+                        </svg>
+                        Download CV (PDF)
+                    </a>
                 </div>
             </div>
 
@@ -1166,50 +1467,50 @@
                         </div>
 
                         <!-- AI Tools Section -->
-                        <div style="margin-top: 3rem;">
-                            <div style="margin-bottom: 2rem;">
-                                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">AI Tools & Platforms</h3>
-                                <p style="font-size: 0.9375rem; color: var(--text-secondary); font-weight: 500;">Current tech stack for building AI-first solutions</p>
+                        <div class="ai-tools-section">
+                            <div class="ai-tools-header">
+                                <h3 class="ai-tools-title">AI Tools & Platforms</h3>
+                                <p class="ai-tools-subtitle">Current tech stack for building AI-first solutions</p>
                             </div>
 
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-                                <div style="background: white; border: 1px solid var(--border-light); border-radius: 12px; padding: 1.25rem;">
-                                    <h4 style="font-size: 0.875rem; font-weight: 700; color: var(--accent); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Development</h4>
-                                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Claude Code & CoWork</span>
-                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Cursor IDE</span>
-                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">GitHub Copilot</span>
-                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Lovable</span>
+                            <div class="ai-tools-grid">
+                                <div class="ai-tools-card">
+                                    <h4>Development</h4>
+                                    <div class="ai-tools-list">
+                                        <span>Claude Code & CoWork</span>
+                                        <span>Cursor IDE</span>
+                                        <span>GitHub Copilot</span>
+                                        <span>Lovable</span>
                                     </div>
                                 </div>
 
-                                <div style="background: white; border: 1px solid var(--border-light); border-radius: 12px; padding: 1.25rem;">
-                                    <h4 style="font-size: 0.875rem; font-weight: 700; color: var(--accent); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">AI Agents</h4>
-                                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">OpenClaw</span>
-                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">MoltBot</span>
-                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">AutoGPT</span>
-                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">LangChain</span>
+                                <div class="ai-tools-card">
+                                    <h4>AI Agents</h4>
+                                    <div class="ai-tools-list">
+                                        <span>OpenClaw</span>
+                                        <span>MoltBot</span>
+                                        <span>AutoGPT</span>
+                                        <span>LangChain</span>
                                     </div>
                                 </div>
 
-                                <div style="background: white; border: 1px solid var(--border-light); border-radius: 12px; padding: 1.25rem;">
-                                    <h4 style="font-size: 0.875rem; font-weight: 700; color: var(--accent); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">No-Code/Low-Code</h4>
-                                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">v0 by Vercel</span>
-                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Bolt.new</span>
-                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Replit Agent</span>
-                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Windsurf</span>
+                                <div class="ai-tools-card">
+                                    <h4>No-Code/Low-Code</h4>
+                                    <div class="ai-tools-list">
+                                        <span>v0 by Vercel</span>
+                                        <span>Bolt.new</span>
+                                        <span>Replit Agent</span>
+                                        <span>Windsurf</span>
                                     </div>
                                 </div>
 
-                                <div style="background: white; border: 1px solid var(--border-light); border-radius: 12px; padding: 1.25rem;">
-                                    <h4 style="font-size: 0.875rem; font-weight: 700; color: var(--accent); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">LLM Platforms</h4>
-                                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Claude (Anthropic)</span>
-                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">GPT-4 (OpenAI)</span>
-                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Gemini (Google)</span>
-                                        <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">DeepSeek</span>
+                                <div class="ai-tools-card">
+                                    <h4>LLM Platforms</h4>
+                                    <div class="ai-tools-list">
+                                        <span>Claude (Anthropic)</span>
+                                        <span>GPT-4 (OpenAI)</span>
+                                        <span>Gemini (Google)</span>
+                                        <span>DeepSeek</span>
                                     </div>
                                 </div>
                             </div>
@@ -1894,6 +2195,47 @@
             });
         });
 
+        // Mobile hamburger menu
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.sidebar-overlay');
+
+        function openMenu() {
+            menuToggle.classList.add('active');
+            sidebar.classList.add('open');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            menuToggle.classList.remove('active');
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                if (sidebar.classList.contains('open')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+        }
+
+        if (overlay) {
+            overlay.addEventListener('click', closeMenu);
+        }
+
+        // Close mobile menu when a nav link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    closeMenu();
+                }
+            });
+        });
     </script>
 </body>
 </html>
