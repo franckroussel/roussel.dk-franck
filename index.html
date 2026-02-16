@@ -1142,6 +1142,8 @@
 
             .main-content {
                 margin-left: 0;
+                height: auto;
+                overflow-y: visible;
             }
 
             .container {
@@ -1192,13 +1194,7 @@
             }
 
             .product-images-container {
-                flex-direction: column;
-            }
-
-            .product-image-item {
-                min-height: 220px;
-                padding: 1.5rem;
-                min-width: auto;
+                display: none;
             }
 
             .company-logo {
@@ -2172,25 +2168,37 @@
         }
 
         // Smooth scroll for navigation
+        function isMobile() {
+            return window.innerWidth <= 768;
+        }
+
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const targetId = link.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
 
-                if (targetElement && mainContent) {
+                if (targetElement) {
                     // Manually set active state immediately on click
                     navLinks.forEach(l => l.classList.remove('active'));
                     link.classList.add('active');
 
-                    // Calculate the position relative to the main-content scroll
-                    const targetTop = targetElement.offsetTop;
-                    const mainContentTop = contentWrapper.offsetTop;
+                    if (isMobile()) {
+                        // On mobile, the page itself scrolls (not .main-content)
+                        // Use a small delay to let the menu close first
+                        setTimeout(() => {
+                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 50);
+                    } else if (mainContent) {
+                        // On desktop, .main-content is the scroll container
+                        const targetTop = targetElement.offsetTop;
+                        const mainContentTop = contentWrapper.offsetTop;
 
-                    mainContent.scrollTo({
-                        top: targetTop - mainContentTop - 20,
-                        behavior: 'smooth'
-                    });
+                        mainContent.scrollTo({
+                            top: targetTop - mainContentTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
         });
